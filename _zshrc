@@ -1,0 +1,60 @@
+# 我的zsh配置文件
+# elemeta@foxmail.com
+
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH=/usr/local/bin:~/work/my_tools:$PATH
+export EDK_TOOLS_PATH=$HOME/work/edk2-vUDK2017/BaseTools
+
+# USTC Homebrew bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# My Work Path
+export PATH=$PATH:~/work/bin/macos
+
+# sqlite
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+# mysql
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+ 
+# Golang
+export GOPATH=~/work/go
+export PATH=$PATH:${GOPATH}/bin
+
+# Exports {{{
+# }}}
+
+# Tmux {{{
+# Makes creating a new tmux session easier
+function tmuxopen() {
+    tmux attach -t $1
+}
+
+# Makes creating a new tmux session (with a specific name) easier
+function tmuxnew() {
+  tmux new -s $1
+}
+# Makes deleting a tmux session easier
+function tmuxkill() {
+  tmux kill-session -t $1
+}
+# }}}
+
+#Alias {{{
+    alias r='source ~/.zshrc'
+    alias ct="ctags -R --exclude=.git --exclude=node_modules"
+    alias dotfiles="ls -a | grep '^\.' | grep --invert-match '\.DS_Store\|\.$'" 
+# }}}
+
+# History {{{
+    HISTSIZE=10000
+    SAVEHIST=9000
+    HISTFILE=~/.zsh_history
+# }}}
+
+# Autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
