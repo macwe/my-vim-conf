@@ -10,6 +10,7 @@
         Plug 'vim-airline/vim-airline'
         Plug 'kien/ctrlp.vim'
         Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+        Plug 'rust-lang/rust.vim'
     call plug#end()
 "}}
 
