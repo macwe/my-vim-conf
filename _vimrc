@@ -35,6 +35,7 @@
     set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936 "使用utf-8或gbk打开文件
     set ffs=unix,dos,mac        " Use Unix as the standard file type
     set hls                     " 检索时高亮显示匹配项
+    set paste                   " 外部粘贴时保存原格式
 
     syn on                      " 语法支持
     syntax enable               " 语法高亮
