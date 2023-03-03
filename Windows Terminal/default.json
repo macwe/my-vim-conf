@@ -1,0 +1,11 @@
+{
+    "defaults": {
+        "opacity": 80,
+        "colorScheme": "Dracula",
+        "useAcrylic": true,
+        "font": {
+            "face": "Cascadia Code PL",
+            "size": 9
+        }
+    }
+}
