@@ -11,6 +11,7 @@
         Plug 'kien/ctrlp.vim'
         Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
         Plug 'rust-lang/rust.vim'
+		Plug 'dracula/vim', { 'as': 'dracula' }
     call plug#end()
 "}}
 
