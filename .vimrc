@@ -11,13 +11,12 @@
         Plug 'kien/ctrlp.vim'
         Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
         Plug 'rust-lang/rust.vim'
-		Plug 'dracula/vim', { 'as': 'dracula' }
     call plug#end()
 "}}
 
 "通用配置 {{
     set nocompatible            " be iMproved, required
-    set history=1000             " 保存的历史记录条目
+    set history=1000            " 保存的历史记录条目
     set bs=2                    " 在insert模式下用退格键删除
     set showmatch               " 代码匹配
     set laststatus=2            " 总是显示状态行
@@ -47,12 +46,18 @@
     set nowb
     set noswapfile
 
+	" With a map leader it's possible to do extra key combinations
+	" like <leader>w saves the current file
+	let mapleader = ","
+
+	" Fast saving
+	nmap <leader>w :w!<cr>
+
     " :W sudo saves the file
     " (useful for handling the permission-denied error)
     command W w !sudo tee % > /dev/null
 
     "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
-    let mapleader = ','
     nnoremap <C-l> gt
     nnoremap <C-h> gT
     nnoremap <leader>t : tabe<CR>
@@ -67,7 +72,28 @@
         map - <C-W>-
     "}
 
+
+	" Ignore compiled files
+	set wildignore=*.o,*~,*.pyc
+	if has("win16") || has("win32")
+	    set wildignore+=.git\*,.hg\*,.svn\*
+	else
+	    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+	endif
+
+
+	set background=dark
+
+
 "}}
+
+" MacVim {{
+    if has("gui_macvim")
+        set t_Co=256 " 开启256色 
+        set guifont=Cascadia\ Code\ PL:h12
+        colorscheme solarized
+    endif
+" }}
 
 " 插件配置 {{
 
@@ -109,5 +135,11 @@
         " 保存文件的时候格式化代码并自动解决包依赖
         let g:go_fmt_command = "goimports"
     "}
+	
+	"Rust {
+		
+
+	"}
+    "
 "}}
 
